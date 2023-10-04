@@ -19,10 +19,33 @@ void addNewNodeFirst(int value) {
     listPoints = n;
 }
 
-void printAll(Node *n) {
-    if (n!= NULL) {
-        printf("%d\n", n->value);
-        printAll(n->prox);
+void addNewNodeLast(int value) {
+    Node *n = (Node*) malloc(sizeof(Node));
+    n->value = value;
+    n->prox = NULL;
+    if (listPoints == NULL) {
+        listPoints = n;
+    } else {
+        Node *auxList = listPoints;
+        while (auxList->prox != NULL) {
+            auxList = auxList->prox;
+        }
+        auxList->prox = n;
+    }
+}
+
+void printAllRecursive(Node *auxList) {
+    if (auxList != NULL) {
+        matheus::cout << "Point: " << auxList->value << matheus::endl;
+        printAllRecursive(auxList->prox);
+    }
+}
+
+void printAllIterative() {
+    Node *auxList = listPoints;
+    while (auxList != NULL) {
+        matheus::cout << "Point: " << auxList->value << matheus::endl;
+        auxList = auxList->prox;
     }
 }
 
@@ -33,8 +56,9 @@ void menuOp(int op) {
             addNewNodeFirst(newValue);
             matheus::cout << "New point add!" << matheus::endl;
         } else if (op == 2) {
-            Node *auxLista = listPoints;
-            printAll(auxLista);
+            Node *auxList = listPoints;
+            printAllRecursive(auxList);
+            printAllIterative();
         } else {
             op = -1;
         }
