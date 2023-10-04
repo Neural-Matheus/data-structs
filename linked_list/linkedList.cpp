@@ -49,6 +49,12 @@ void printAllIterative() {
     }
 }
 
+Node* searchVal(int x, Node *n) {
+    while (n != NULL && n->value != x) {
+        n = n->prox;
+    }
+    return n;
+}
 void menuOp(int op) {
     while(op != -1) {
         if (op == 1) {
@@ -59,6 +65,21 @@ void menuOp(int op) {
             Node *auxList = listPoints;
             printAllRecursive(auxList);
             printAllIterative();
+        } else if (op == 3) {
+
+            Node *auxList = listPoints;
+            matheus::cout << "Enter the node you want to search: " << matheus::endl;
+
+            int x; matheus::cin >> x;
+
+            Node* result = searchVal(x, auxList);
+
+            if (result != NULL) {
+                matheus::cout << "value found: " << result->value << matheus::endl;
+            } else {
+                matheus::cout << "value not found!" << matheus::endl;
+            }
+            
         } else {
             op = -1;
         }
