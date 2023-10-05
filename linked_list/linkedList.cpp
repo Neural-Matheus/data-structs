@@ -61,11 +61,34 @@ int updateVal(int x, int newV, Node *n) {
     while (n != NULL && n->value != x) {
         n = n->prox;
     }
-    
+
     if (n == NULL) return 0;
     else n->value = newV;
     return 1;
 }
+
+int quantPair(Node *n) {
+    int count = 0;
+    while (n != NULL) {
+        if (n->value % 2 == 0) {
+            count++;
+        }
+        n = n->prox;
+    }
+    return count;
+}
+
+int quantOdd(Node *n) {
+    int count = 0;
+    while (n != NULL) {
+        if (n->value % 2 != 0) {
+            count++;
+        }
+        n = n->prox;
+    }
+    return count;
+}
+
 void menuOp(int op) {
     while(op != -1) {
         if (op == 1) {
@@ -112,6 +135,16 @@ void menuOp(int op) {
                 matheus::cout << "Not found" << matheus::endl;
 
             }
+            
+        } else if (op == 5) {
+            Node *auxLista = listPoints;
+            int result = quantPair(auxLista);
+            matheus::cout << "The number of even numbers is: " << result << matheus::endl;
+            
+        } else if (op == 6) {
+            Node *auxLista = listPoints;
+            int result = quantOdd(auxLista);
+            matheus::cout << "The number of odd numbers is: " << result << matheus::endl;
         } else {
             op = -1;
         }
