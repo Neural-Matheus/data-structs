@@ -3,11 +3,11 @@
 
 class Node {
 public:
-    int value;
+    int data;
     Node *next;
 
-    Node(int value) {
-        this->value = value;
+    Node(int data) {
+        this->data = data;
         this->next = NULL;
     }
 };
