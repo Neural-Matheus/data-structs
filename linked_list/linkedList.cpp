@@ -38,6 +38,8 @@ void printAllRecursive(Node *auxList) {
     if (auxList != NULL) {
         matheus::cout << "Point: " << auxList->value << matheus::endl;
         printAllRecursive(auxList->prox);
+    } else {
+        matheus::cout << "Empty list" << matheus::endl;
     }
 }
 
@@ -46,6 +48,9 @@ void printAllIterative() {
     while (auxList != NULL) {
         matheus::cout << "Point: " << auxList->value << matheus::endl;
         auxList = auxList->prox;
+    }
+    if (auxList == NULL) {
+        matheus::cout << "Empty list" << matheus::endl;
     }
 }
 
@@ -89,6 +94,17 @@ int quantOdd(Node *n) {
     return count;
 }
 
+void clear(Node *n) {
+    Node *auxList;
+
+    while (n != NULL) {
+        auxList = n;
+        n = n->prox;
+        free(auxList);
+    }
+    listPoints = NULL;
+    matheus::cout << "List deleted!" << matheus::endl;
+}
 void menuOp(int op) {
     while(op != -1) {
         if (op == 1) {
@@ -140,11 +156,16 @@ void menuOp(int op) {
             Node *auxLista = listPoints;
             int result = quantPair(auxLista);
             matheus::cout << "The number of even numbers is: " << result << matheus::endl;
-            
+
         } else if (op == 6) {
             Node *auxLista = listPoints;
             int result = quantOdd(auxLista);
             matheus::cout << "The number of odd numbers is: " << result << matheus::endl;
+
+        } else if (op == 7) {
+            Node *auxList = listPoints;
+            clear(auxList);
+            
         } else {
             op = -1;
         }
