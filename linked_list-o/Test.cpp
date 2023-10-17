@@ -1,67 +1,57 @@
+#pragma once
 #include <iostream>
 #include <stdlib.h>
 
 #include "Node.cpp"
 #include "LinkedList.cpp"
+#include "../Utils.cpp"
 
-void menu();
-void getInput();
-void test(int op, int &data, LinkedList *list);
 
-int main() {    
-    LinkedList *list = new LinkedList();
-
-    menu();
-
-    int op, data; std::cin >> op;
-    while(op != 0) {
-        test(op, data, list);
-        menu();
-        std::cin >> op;
+class Test {
+public:
+    template <typename T>
+    static void test(int op, int &data, T dataStructure) {
+        if(typeid(T) == typeid(LinkedList*)) {
+            testLinkedList(op, data, (LinkedList*)dataStructure);
+        } else {
+            printf("Não\n");
+        }
     }
-}
 
-void menu() {
-    std::cout << "\n0 - Stop\n1 - Add front\n2 - Add back\n3 - Get item by value\n4 - Remove element by value\n5 - Clear list\n6 - Print list\n\n";
-}
+    static void testLinkedList(int op, int &data, LinkedList *list) {
+        switch (op) {
+            case 1:
+                Utils::getInput(data);
+                list->pushFront(data);
+                break;
+                
+            case 2:
+                Utils::getInput(data);
+                list->pushBack(data);
+                break;
 
-void getInput(int &data) {
-    std::cout << "Valor: ";
-    std::cin >> data;
-}
+            case 3:
+                Utils::getInput(data);
+                Node *p; 
+                p = list->get(data);
 
-void test(int op, int &data, LinkedList *list){
-    switch (op) {
-        case 1:
-            getInput(data);
-            list->pushFront(data);
-            break;
-            
-        case 2:
-            getInput(data);
-            list->pushBack(data);
-            break;
+                if (p != NULL) printf("Endereço: %p e valor: %d\n", p, p->data);
+                else printf("Valor não encontrado\n");
 
-        case 3:
-            getInput(data);
-            Node *p; 
-            p = list->get(data);
+                break;
+            case 4:
+                Utils::getInput(data);
+                list->remove(data);
+                break;
 
-            if (p != NULL) printf("Endereço: %p e valor: %d\n", p, p->data);
-            else printf("Valor não encontrado\n");
+            case 5:
+                list->clear();
+                break;
 
-            break;
-        case 4:
-            getInput(data);
-            list->remove(data);
-            break;
-
-        case 5:
-            list->clear();
-            break;
-
-        case 6:
-            list->printAll();
-            break;
+            case 6:
+                list->printAll();
+                break;
+        }
     }
-}
+};
+
