@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Node.cpp"
+#include "../core/Node.cpp"
 
 class LinkedList {
 public:

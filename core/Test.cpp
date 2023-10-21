@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 #include "Node.cpp"
-#include "LinkedList.cpp"
-#include "../Utils.cpp"
+#include "../linked_list-o/LinkedList.cpp"
+#include "Utils.cpp"
 
 
 class Test {
