@@ -1,32 +1,32 @@
-#include "../linked_list-o/LinkedList.cpp"
-#include "../core/Node.cpp"
+#include <stdlib.h>
+#include "../include/queue.h"
 
-class Queue : LinkedList {
-public:
-    Node *head;
-    Node *tail;
+Queue::Queue() {
+    LinearList();
+    this->tail = NULL;
+}
 
-    Queue() {
-        this->head = NULL;
-        this->tail = NULL;
-    }
+void Queue::enqueue(int data) {
+    Node *newNode = new Node(data);
 
-    void enqueue(int data) {
-        Node *newNode = new Node(data);
+    if (!head)
+        head = tail = newNode;
 
-        if(!head) head = tail = newNode;
+    tail->next = newNode;
+    tail = newNode;
+}
 
-        tail->next = newNode;
-        tail = newNode;
-    }
+int Queue::dequeue() {
+    if (!head)
+        return NULL;
+    int v;
 
-    void dequeue() {
-        if(!head) return;
+    Node *aux = head;
+    v = aux->data;
+    head = head->next;
+    free(aux);
 
-        Node *aux = head;
-        head = head->next;
-        free(aux);
-
-        if(!head) tail = NULL;
-    }
-};
+    if (!head)
+        tail = NULL;
+    return v;
+}

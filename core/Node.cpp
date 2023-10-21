@@ -1,13 +1,7 @@
-#pragma once
 #include <iostream>
+#include "../include/core.h"
 
-class Node {
-public:
-    int data;
-    Node *next;
-
-    Node(int data) {
-        this->data = data;
-        this->next = NULL;
-    }
-};
+Node::Node(int data) {
+    this->data = data;
+    this->next = NULL;
+}

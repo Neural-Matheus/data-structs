@@ -1,11 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
 
-#include "core/Node.cpp"
-#include "linked_list-o/LinkedList.cpp"
-#include "queue-o/Queue.cpp"
-#include "core/Utils.cpp"
-#include "core/Test.cpp"
+#include "include/core.h"
+#include "include/queue.h"
+#include "include/test.h"
+#include "include/simply_linked_list.h"
 
 int main() {    
     LinkedList *list = new LinkedList();
