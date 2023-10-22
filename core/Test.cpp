@@ -3,19 +3,19 @@
 
 #include "../include/core.h"
 #include "../include/test.h"
-
+/*
 void Test::test(int op, int &data, void *dataStructure) {
     if (typeid(void *) == typeid(LinkedList *))
     {
-        testLinkedList(op, data, (LinkedList *)dataStructure);
+        testLinkedList(op, data, (LinkedList *) dataStructure);
     }
     else
     {
         printf("Não\n");
     }
-}
+}*/
 
-void Test::testLinkedList(int op, int &data, LinkedList *list) {
+void Test::testLinkedList(int op, int &data, LinkedList *&list) {
     switch (op)
     {
     case 1:

@@ -2,7 +2,7 @@
 #include "../include/queue.h"
 
 Queue::Queue() {
-    LinearList();
+    this->LinearList::head = NULL;
     this->tail = NULL;
 }
 
@@ -10,23 +10,23 @@ void Queue::enqueue(int data) {
     Node *newNode = new Node(data);
 
     if (!head)
-        head = tail = newNode;
+        LinearList::head = tail = newNode;
 
     tail->next = newNode;
     tail = newNode;
 }
 
 int Queue::dequeue() {
-    if (!head)
+    if (!LinearList::head)
         return NULL;
     int v;
 
-    Node *aux = head;
+    Node *aux = LinearList::head;
     v = aux->data;
-    head = head->next;
+    LinearList::head = LinearList::head->next;
     free(aux);
 
-    if (!head)
+    if (!LinearList::head)
         tail = NULL;
     return v;
 }

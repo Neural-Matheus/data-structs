@@ -11,8 +11,7 @@ bool LinearList::isEmpty() {
 
 void LinearList::clear() {
     Node *aux;
-    while (head != NULL)
-    {
+    while (head != NULL) {
         aux = head;
         head = head->next;
         free(aux);
@@ -20,8 +19,7 @@ void LinearList::clear() {
 }
 
 void LinearList::printAll() {
-    if (head == NULL)
-    {
+    if (head == NULL) {
         std::cout << "\nSem elementos na lista\n";
         return;
     }
@@ -29,8 +27,7 @@ void LinearList::printAll() {
     std::cout << "\nLista: ";
 
     Node *p = head;
-    while (p != NULL)
-    {
+    while (p != NULL) {
         std::cout << p->data << " \n"[p->next == NULL];
         p = p->next;
     }

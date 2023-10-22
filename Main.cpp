@@ -13,7 +13,7 @@ int main() {
 
     int op, data; std::cin >> op;
     while(op != 0) {
-        Test::test(op, data, list);
+        Test::testLinkedList(op, data, list);
         Utils::menu();
         std::cin >> op;
     }
