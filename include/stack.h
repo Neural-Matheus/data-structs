@@ -3,8 +3,6 @@
 
 class Stack : public LinearList {
 public:
-    Node *top;
-
     Stack();
 
     void push(int data);

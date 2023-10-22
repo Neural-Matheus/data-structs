@@ -2,26 +2,26 @@
 #include "../include/stack.h"
 
 Stack::Stack() {
-    this->top = NULL;
+    this->LinearList::head = NULL;
 }
 
 void Stack::push(int data) {
     Node *newNode = (Node *)calloc(1, sizeof(Node));
     newNode->data = data;
 
-    newNode->next = top;
-    top = newNode;
+    newNode->next = LinearList::head;
+    LinearList::head = newNode;
 }
 
 int Stack::pop() {
-    Node *aux = top;
+    Node *aux = LinearList::head;
     int v;
 
     if (isEmpty())
         return NULL;
 
     v = aux->data;
-    top = top->next;
+    LinearList::head = LinearList::head->next;
     free(aux);
     return v;
 }

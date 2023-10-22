@@ -3,8 +3,6 @@
 
 class LinkedList : public LinearList {
 public:
-    Node *head;
-
     LinkedList();
        
     void pushFront(int data);

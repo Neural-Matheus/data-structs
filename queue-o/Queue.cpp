@@ -9,8 +9,7 @@ Queue::Queue() {
 void Queue::enqueue(int data) {
     Node *newNode = new Node(data);
 
-    if (!head)
-        LinearList::head = tail = newNode;
+    if (!LinearList::head) LinearList::head = tail = newNode;
 
     tail->next = newNode;
     tail = newNode;

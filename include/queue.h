@@ -1,10 +1,8 @@
 #pragma once
 #include "core.h"
 
-
 class Queue : public LinearList {
 public:
-    Node *head;
     Node *tail;
 
     Queue();

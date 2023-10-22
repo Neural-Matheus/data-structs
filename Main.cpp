@@ -7,18 +7,16 @@
 #include "include/simply_linked_list.h"
 
 int main() {    
-    LinkedList *list = new LinkedList();
+    Stack *d = new Stack();
+    int op, data;
 
-    Utils::menu();
-
-    int op, data; std::cin >> op;
-    while(op != 0) {
-        Test::testLinkedList(op, data, list);
-        Utils::menu();
+    do {    
+        Utils::menuStack();
         std::cin >> op;
-    }
+        Test::testStack(op, data, d);
+    } while(op != 0);
 
-    delete list;
+    delete d;
 
     return 0;
 }

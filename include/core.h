@@ -21,6 +21,8 @@ public:
 
 class Utils {
 public:
-    static void menu();
+    static void menuLinked();
+    static void menuQueue();
+    static void menuStack();
     static void getInput(int &data);
 };
